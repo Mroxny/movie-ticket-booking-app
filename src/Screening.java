@@ -35,5 +35,5 @@ public class Screening {
     public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
-    
+
 }
