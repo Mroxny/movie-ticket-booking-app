@@ -6,12 +6,14 @@ public class Screening {
     private LocalTime startTime;
     private LocalTime endTime;
     private List<Seat> seats;
+    private Movie movie;
 
-    public Screening(int screeningRoom, LocalTime startTime, LocalTime endTime, List<Seat> seats) {
+    public Screening(int screeningRoom, LocalTime startTime, LocalTime endTime, List<Seat> seats, Movie movie) {
         this.screeningRoom = screeningRoom;
         this.startTime = startTime;
         this.endTime = endTime;
         this.seats = seats;
+        this.movie = movie;
     }
 
     public int getScreeningRoom() {
@@ -44,5 +46,13 @@ public class Screening {
 
     public void setSeats(List<Seat> seats) {
         this.seats = seats;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }
