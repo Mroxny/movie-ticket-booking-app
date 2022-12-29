@@ -2,11 +2,13 @@ public class Seat {
     private int row;
     private int column;
     private boolean isBooked;
+    private TicketType seatType;
 
     public Seat(int row, int column, boolean isBooked) {
         this.row = row;
         this.column = column;
         this.isBooked = isBooked;
+        seatType = TicketType.ADULT;
     }
 
     public Seat(int row, int column){
@@ -35,6 +37,14 @@ public class Seat {
 
     public void setBooked(boolean booked) {
         isBooked = booked;
+    }
+
+    public TicketType getSeatType() {
+        return seatType;
+    }
+
+    public void setSeatType(TicketType seatType) {
+        this.seatType = seatType;
     }
 }
 
