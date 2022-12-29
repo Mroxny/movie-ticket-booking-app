@@ -2,6 +2,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 public class Screening {
+    private int screeningId;
     private int screeningRoom;
     private LocalTime startTime;
     private LocalTime endTime;
@@ -54,5 +55,13 @@ public class Screening {
 
     public void setMovie(Movie movie) {
         this.movie = movie;
+    }
+
+    public int getScreeningId() {
+        return screeningId;
+    }
+
+    public void setScreeningId(int screeningId) {
+        this.screeningId = screeningId;
     }
 }
