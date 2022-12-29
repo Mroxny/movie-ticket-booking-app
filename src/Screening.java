@@ -10,11 +10,13 @@ public class Screening {
     private List<Seat> seats;
     private Movie movie;
 
-    public Screening(int screeningRoom, LocalTime startTime, LocalTime endTime, List<Seat> seats, Movie movie) {
+    public Screening(int screeningRoom, LocalTime startTime, List<Seat> seats, Movie movie) {
         screeningId = sCount++;
         this.screeningRoom = screeningRoom;
         this.startTime = startTime;
-        this.endTime = endTime;
+
+        // end screening after movie ends + ads
+        setEndTime(startTime.plusMinutes(movie.getLength()+15));
         this.seats = seats;
         this.movie = movie;
     }
