@@ -19,8 +19,8 @@ public class MultiplexManager {
     public List<Screening> listScreenings(LocalDate day, LocalTime startTime, LocalTime endTime) {
         return screenings.stream()
                 .filter(screening -> screening.getDay().isEqual(day) &&
-                        screening.getStartTime().minusMinutes(1).isAfter(startTime) &&
-                        screening.getStartTime().minusMinutes(1).isBefore(endTime))
+                        screening.getStartTime().isAfter(startTime) &&
+                        screening.getStartTime().isBefore(endTime))
                 .sorted(Comparator.comparing((Screening screening) -> screening.getMovie().getTitle())
                         .thenComparing(Screening::getStartTime))
                 .collect(Collectors.toList());
