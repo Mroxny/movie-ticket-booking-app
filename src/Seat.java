@@ -9,6 +9,10 @@ public class Seat {
         this.isBooked = isBooked;
     }
 
+    public Seat(int row, int column){
+        this(row,column, true);
+    }
+
     public int getRow() {
         return row;
     }
