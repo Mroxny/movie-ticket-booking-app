@@ -20,11 +20,11 @@ public class Main {
         System.out.println(testDate1);
 
         List<Seat> seats1 = Arrays.asList(
-                new Seat(1, 1, TicketType.ADULT),
-                new Seat(1, 2, TicketType.ADULT),
-                new Seat(1, 3, TicketType.ADULT),
-                new Seat(1, 4, TicketType.ADULT),
-                new Seat(1, 5, TicketType.ADULT)
+                new Seat(1, 1),
+                new Seat(1, 2),
+                new Seat(1, 3),
+                new Seat(1, 4),
+                new Seat(1, 5)
         );
     }
 }
