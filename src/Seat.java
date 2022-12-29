@@ -1,12 +1,12 @@
 public class Seat {
     private int row;
     private int column;
-    private TicketType ticketType;
+    private boolean isBooked;
 
-    public Seat(int row, int column, TicketType ticketType) {
+    public Seat(int row, int column, boolean isBooked) {
         this.row = row;
         this.column = column;
-        this.ticketType = ticketType;
+        this.isBooked = isBooked;
     }
 
     public int getRow() {
@@ -25,12 +25,12 @@ public class Seat {
         this.column = column;
     }
 
-    public TicketType getTicketType() {
-        return ticketType;
+    public boolean isBooked() {
+        return isBooked;
     }
 
-    public void setTicketType(TicketType ticketType) {
-        this.ticketType = ticketType;
+    public void setBooked(boolean booked) {
+        isBooked = booked;
     }
 }
 
