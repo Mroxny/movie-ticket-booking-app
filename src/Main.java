@@ -24,7 +24,22 @@ public class Main {
                 new Seat(1, 2),
                 new Seat(1, 3),
                 new Seat(1, 4),
-                new Seat(1, 5)
+                new Seat(1, 5),
+                new Seat(2, 1),
+                new Seat(2, 2),
+                new Seat(2, 3),
+                new Seat(2, 4),
+                new Seat(2, 5)
         );
+
+        Movie movie1 = new Movie("Test1", 120);
+        Movie movie2 = new Movie("Test2", 90);
+
+        Screening s1 = new Screening(1,testDate1,testTime1_1, seats1, movie1);
+        Screening s2 = new Screening(3,testDate2,testTime1_2, seats1, movie2);
+        Screening s3 = new Screening(2,testDate1,testTime2_1, seats1, movie1);
+        Screening s4 = new Screening(1,testDate2,testTime2_2, seats1, movie2);
+
+        MultiplexManager mm = new MultiplexManager(Arrays.asList(s1,s2,s3,s4));
     }
 }
