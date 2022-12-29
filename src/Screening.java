@@ -80,4 +80,16 @@ public class Screening {
     public void setDay(LocalDate day) {
         this.day = day;
     }
+
+    @Override
+    public String toString() {
+        return "Screening{" +
+                "screeningId=" + screeningId +
+                ", screeningRoom=" + screeningRoom +
+                ", day=" + day +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", movie=" + movie.getTitle() +
+                '}';
+    }
 }
