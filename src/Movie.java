@@ -1,5 +1,7 @@
 public class Movie {
     private String title;
+
+    // movie length in minutes
     private int length;
 
     public Movie(String title, int length) {
