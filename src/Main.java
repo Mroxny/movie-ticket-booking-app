@@ -42,10 +42,7 @@ public class Main {
 
         MultiplexManager mm = new MultiplexManager(Arrays.asList(s1,s2,s3,s4));
 
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
-        System.out.println(s4);
+        System.out.println(mm.listScreenings(testDate2, testTime1_2, LocalTime.of(23,59)));
 
     }
 }
