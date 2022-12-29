@@ -26,7 +26,7 @@ public class MultiplexManager {
         LocalDateTime now = LocalDateTime.now();
 
         LocalDateTime expirationTime = now.plusMinutes(15);
-        double totalAmount = seats.stream().mapToDouble(seat -> seat.getTicketType().getPrice()).sum();
+        double totalAmount = seats.stream().mapToDouble(seat -> seat.getSeatType().getPrice()).sum();
         Reservation reservation = new Reservation(name, surname, screening, seats, expirationTime, totalAmount);
         reservations.add(reservation);
         return reservation;
