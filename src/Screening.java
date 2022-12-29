@@ -2,6 +2,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 public class Screening {
+    private static int sCount = 0;
     private int screeningId;
     private int screeningRoom;
     private LocalTime startTime;
@@ -10,6 +11,7 @@ public class Screening {
     private Movie movie;
 
     public Screening(int screeningRoom, LocalTime startTime, LocalTime endTime, List<Seat> seats, Movie movie) {
+        screeningId = sCount++;
         this.screeningRoom = screeningRoom;
         this.startTime = startTime;
         this.endTime = endTime;
