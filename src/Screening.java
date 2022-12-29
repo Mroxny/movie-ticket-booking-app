@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -5,18 +6,21 @@ public class Screening {
     private static int sCount = 0;
     private int screeningId;
     private int screeningRoom;
+    private LocalDate day;
     private LocalTime startTime;
     private LocalTime endTime;
     private List<Seat> seats;
     private Movie movie;
 
-    public Screening(int screeningRoom, LocalTime startTime, List<Seat> seats, Movie movie) {
+    public Screening(int screeningRoom, LocalDate day, LocalTime startTime, List<Seat> seats, Movie movie) {
         screeningId = sCount++;
         this.screeningRoom = screeningRoom;
+        this.day = day;
         this.startTime = startTime;
 
         // end screening after movie ends + ads
         setEndTime(startTime.plusMinutes(movie.getLength()+15));
+
         this.seats = seats;
         this.movie = movie;
     }
@@ -67,5 +71,13 @@ public class Screening {
 
     public void setScreeningId(int screeningId) {
         this.screeningId = screeningId;
+    }
+
+    public LocalDate getDay() {
+        return day;
+    }
+
+    public void setDay(LocalDate day) {
+        this.day = day;
     }
 }
