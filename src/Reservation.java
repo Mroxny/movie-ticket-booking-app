@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Reservation {
@@ -5,10 +6,10 @@ public class Reservation {
     private String surname;
     private Screening screening;
     private List<Seat> seats;
-    private String expirationTime;
+    private LocalDateTime expirationTime;
     private double totalAmount;
 
-    public Reservation(String name, String surname, Screening screening, List<Seat> seats, String expirationTime, double totalAmount) {
+    public Reservation(String name, String surname, Screening screening, List<Seat> seats, LocalDateTime expirationTime, double totalAmount) {
         this.name = name;
         this.surname = surname;
         this.screening = screening;
@@ -49,11 +50,11 @@ public class Reservation {
         this.seats = seats;
     }
 
-    public String getExpirationTime() {
+    public LocalDateTime getExpirationTime() {
         return expirationTime;
     }
 
-    public void setExpirationTime(String expirationTime) {
+    public void setExpirationTime(LocalDateTime expirationTime) {
         this.expirationTime = expirationTime;
     }
 
