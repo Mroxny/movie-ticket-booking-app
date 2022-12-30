@@ -68,9 +68,8 @@ public class MultiplexManager {
             return null;
         }
 
-        List<Seat> screeningSeats = room.getSeats();
         for (Seat seat : seats) {
-            if (!screeningSeats.contains(seat)) {
+            if (room.findSeat(seat) < 0) {
                 printReservationError("Can't find seats like that");
                 return null;
             }
