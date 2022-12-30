@@ -11,12 +11,16 @@ public class Seat {
         this.seatType = seatType;
     }
 
+    public Seat(int row, int column, TicketType seatType){
+        this(row,column, false, seatType);
+    }
+
     public Seat(int row, int column, boolean isBooked){
         this(row,column, isBooked, TicketType.ADULT);
     }
 
     public Seat(int row, int column){
-        this(row,column, true);
+        this(row,column, false);
     }
 
     public int getRow() {
