@@ -41,7 +41,8 @@ public class MultiplexManager {
         }
 
         LocalDateTime now = LocalDateTime.now();
-        if (now.isAfter(ChronoLocalDateTime.from(screening.getStartTime())) || now.plusMinutes(15).isAfter(ChronoLocalDateTime.from(screening.getStartTime()))) {
+        LocalDateTime startDateTime = LocalDateTime.of(screening.getDay(), screening.getStartTime());
+        if (now.isAfter(startDateTime) || now.plusMinutes(15).isAfter(startDateTime) {
             return null;
         }
 
