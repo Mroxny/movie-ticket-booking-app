@@ -1,10 +1,11 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.chrono.ChronoLocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class MultiplexManager {
@@ -74,6 +75,24 @@ public class MultiplexManager {
                 return null;
             }
         }
+
+        String nameRegex = "^[A-Z][a-zA-Z]{2,}$";
+        String surnameRegex = "^[A-Z][a-zA-Z]*-[A-Z][a-zA-Z]*$";
+        Pattern surnamePattern = Pattern.compile(surnameRegex);
+        Pattern namePattern = Pattern.compile(nameRegex);
+        Matcher matcher = namePattern.matcher(name);
+
+        if(!matcher.matches()){
+            printReservationError("Invalid name");
+            return null;
+        }
+
+        matcher = surnamePattern.matcher(surname);
+        if(!matcher.matches()){
+            printReservationError("Invalid surname");
+            return null;
+        }
+
 
         LocalDateTime expirationTime = LocalDateTime.of(screening.getDay(), screening.getStartTime()).minusMinutes(15);
         room.bookSeats(seats);
