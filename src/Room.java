@@ -32,6 +32,10 @@ public class Room {
         return -1;
     }
 
+    public int findSeat(Seat seat){
+        return findSeat(seat.getRow(), seat.getColumn());
+    }
+
     public void bookSeat(int row, int col, TicketType type ){
         int seatIndex = findSeat(row,col);
 
