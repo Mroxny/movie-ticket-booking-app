@@ -46,5 +46,14 @@ public class Seat {
     public void setSeatType(TicketType seatType) {
         this.seatType = seatType;
     }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "row=" + row +
+                ", column=" + column +
+                ", seatType=" + seatType +
+                '}';
+    }
 }
 
