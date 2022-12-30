@@ -53,13 +53,13 @@ public class MultiplexManager {
             return null;
         }
 
-        List<Seat> screeningSeats = screening.getSeats();
+        /*List<Seat> screeningSeats = screening.getSeats();
         for (Seat seat : seats) {
             if (!screeningSeats.contains(seat)) {
                 printReservationError("Can't find seats like that");
                 return null;
             }
-        }
+        }*/
 
         LocalDateTime expirationTime = now.plusMinutes(15);
         double totalAmount = seats.stream().mapToDouble(seat -> seat.getSeatType().getPrice()).sum();
