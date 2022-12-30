@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -41,6 +42,13 @@ public class MultiplexManager {
             if (r.getRoomNumber() == roomNumber) return r;
         }
         return null;
+    }
+
+    public boolean canBookSeats(Collection<Seat> reservedSeats, Collection<Seat> row){
+        for(int i = 0; i < reservedSeats.size(); i++){
+
+        }
+
     }
 
     public Reservation makeReservation(String name, String surname, int screeningId, List<Seat> seats) {
