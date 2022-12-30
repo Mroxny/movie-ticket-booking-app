@@ -44,11 +44,23 @@ public class MultiplexManager {
         return null;
     }
 
-    public boolean canBookSeats(Collection<Seat> reservedSeats, Collection<Seat> row){
-        for(int i = 0; i < reservedSeats.size(); i++){
+    public boolean canBookSeats(List<Seat> reservedSeats, List<Seat> row){
+        reservedSeats.sort(new Comparator<Seat>() {
+            @Override
+            public int compare(Seat o1, Seat o2) {
+                return o1.getColumn() - o2.getColumn();
+            }
+        });
 
+        for(int i = 0; i < reservedSeats.size(); i++){
+            if(reservedSeats.get(i).getRow() != row.get(0).getRow())
+                return false;
+            if(i-1 >= 0 && reservedSeats.get(i).getColumn() != reservedSeats.get(i-1).getColumn())
+                return false;
         }
 
+        
+        return true;
     }
 
     public Reservation makeReservation(String name, String surname, int screeningId, List<Seat> seats) {
