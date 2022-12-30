@@ -39,12 +39,12 @@ public class Main {
                 new Seat(1, 4),
                 new Seat(1, 5),
                 new Seat(1, 6),
-                new Seat(1, 1),
-                new Seat(1, 2),
-                new Seat(1, 3),
-                new Seat(1, 4),
-                new Seat(1, 5),
-                new Seat(1, 6)
+                new Seat(2, 1),
+                new Seat(2, 2),
+                new Seat(2, 3),
+                new Seat(2, 4),
+                new Seat(2, 5),
+                new Seat(2, 6)
         );
 
         List<Seat> seats3 = Arrays.asList(
