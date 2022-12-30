@@ -76,7 +76,7 @@ public class Main {
 
         MultiplexManager mm = new MultiplexManager(screenings, rooms);
 
-        screenings.forEach(s -> System.out.println(s+"\n"));
+//        screenings.forEach(s -> System.out.println(s+"\n"));
         System.out.println(mm.listScreenings(testDate2.plusDays(2), LocalTime.of(0,0), LocalTime.of(23,59)));
         System.out.println(mm.makeReservation("Test", "żółć", 7, seats3));
     }
