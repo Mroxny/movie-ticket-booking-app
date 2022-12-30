@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,8 +32,22 @@ public class Main {
                 new Seat(2, 4),
                 new Seat(2, 5)
         );
-
         List<Seat> seats2 = Arrays.asList(
+                new Seat(1, 1),
+                new Seat(1, 2),
+                new Seat(1, 3),
+                new Seat(1, 4),
+                new Seat(1, 5),
+                new Seat(1, 6),
+                new Seat(1, 1),
+                new Seat(1, 2),
+                new Seat(1, 3),
+                new Seat(1, 4),
+                new Seat(1, 5),
+                new Seat(1, 6)
+        );
+
+        List<Seat> seats3 = Arrays.asList(
                 new Seat(1, 1),
                 new Seat(1, 2)
         );
@@ -40,12 +55,20 @@ public class Main {
         Movie movie1 = new Movie("Test1", 120);
         Movie movie2 = new Movie("Test2", 90);
 
-        Screening s1 = new Screening(1,testDate1,testTime1_1, movie1);
-        Screening s2 = new Screening(3,testDate2,testTime1_2, movie2);
-        Screening s3 = new Screening(2,testDate1,testTime2_1, movie1);
-        Screening s4 = new Screening(1,testDate2,testTime2_2, movie2);
+        List<Room> rooms = new ArrayList<Room>(){};
+        rooms.add(new Room(1, seats1));
+        rooms.add(new Room(2, seats2));
+        rooms.add(new Room(3, seats1));
+        rooms.add(new Room(4, seats2));
 
-        MultiplexManager mm = new MultiplexManager(Arrays.asList(s1,s2,s3,s4));
+        List<Screening> screenings = new ArrayList<Screening>(){};
+        screenings.add(new Screening(1,testDate1,testTime1_1, movie1));
+        screenings.add(new Screening(3,testDate2,testTime1_2, movie2));
+        screenings.add(new Screening(2,testDate1,testTime2_1, movie1));
+        screenings.add(new Screening(1,testDate2,testTime2_2, movie2));
+
+
+        MultiplexManager mm = new MultiplexManager(screenings, rooms);
 
         System.out.println(mm.listScreenings(testDate2, LocalTime.of(12,0), LocalTime.of(23,59)));
         System.out.println(mm.makeReservation("Test", "SurTest", 3, seats2));
