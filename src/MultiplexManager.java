@@ -56,7 +56,7 @@ public class MultiplexManager {
             return null;
         }
 
-                LocalDateTime now = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now();
         LocalDateTime startDateTime = LocalDateTime.of(screening.getDay(), screening.getStartTime());
         if (now.isAfter(startDateTime) || now.plusMinutes(15).isAfter(startDateTime)) {
             printReservationError("Can't make reservation at that time");
