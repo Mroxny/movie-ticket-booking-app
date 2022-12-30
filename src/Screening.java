@@ -9,10 +9,9 @@ public class Screening {
     private LocalDate day;
     private LocalTime startTime;
     private LocalTime endTime;
-    private List<Seat> seats;
     private Movie movie;
 
-    public Screening(int screeningRoom, LocalDate day, LocalTime startTime, List<Seat> seats, Movie movie) {
+    public Screening(int screeningRoom, LocalDate day, LocalTime startTime, Movie movie) {
         screeningId = sCount++;
         this.screeningRoom = screeningRoom;
         this.day = day;
@@ -21,7 +20,6 @@ public class Screening {
         // end screening after movie ends + ads
         setEndTime(startTime.plusMinutes(movie.getLength()+15));
 
-        this.seats = seats;
         this.movie = movie;
     }
 
@@ -49,13 +47,6 @@ public class Screening {
         this.endTime = endTime;
     }
 
-    public List<Seat> getSeats() {
-        return seats;
-    }
-
-    public void setSeats(List<Seat> seats) {
-        this.seats = seats;
-    }
 
     public Movie getMovie() {
         return movie;

@@ -33,10 +33,22 @@ public class Room {
     }
 
     public void bookSeat(int row, int col, TicketType type ){
-        seats.get(findSeat(row,col)).setBooked(true);
-        seats.get(findSeat(row,col)).setSeatType(type);
+        int seatIndex = findSeat(row,col);
+
+        if(seatIndex < 0){
+            System.out.println("Cannot find seat like this");
+            return;
+        }
+
+        seats.get(seatIndex).setBooked(true);
+        seats.get(seatIndex).setSeatType(type);
     }
+
     public void bookSeat(int row, int col){
         bookSeat(row,col, TicketType.ADULT);
+    }
+
+    public void bookSeat(Seat seat){
+        bookSeat(seat.getRow(),seat.getColumn(), seat.getSeatType());
     }
 }
