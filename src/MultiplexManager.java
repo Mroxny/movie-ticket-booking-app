@@ -52,6 +52,7 @@ public class MultiplexManager {
             }
         });
 
+        System.out.println(reservedSeats);
         for(int i = 0; i < reservedSeats.size(); i++){
             if(reservedSeats.get(i).getRow() != row.get(0).getRow())
                 return false;
