@@ -44,19 +44,19 @@ public class MultiplexManager {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime startDateTime = LocalDateTime.of(screening.getDay(), screening.getStartTime());
         if (now.isAfter(startDateTime) || now.plusMinutes(15).isAfter(startDateTime)) {
-            System.out.println("[RESERVATION ERROR]: Can't make reservation at that time");
+            printReservationError("Can't make reservation at that time");
             return null;
         }
 
         if (seats.size() < 1 || seats.size() > 10) {
-            System.out.println("[RESERVATION ERROR]: Wrong number of seats");
+            printReservationError("Wrong number of seats");
             return null;
         }
 
         List<Seat> screeningSeats = screening.getSeats();
         for (Seat seat : seats) {
             if (!screeningSeats.contains(seat)) {
-                System.out.println("[RESERVATION ERROR]: Can't find seats like that");
+                printReservationError("Can't find seats like that");
                 return null;
             }
         }
@@ -66,6 +66,10 @@ public class MultiplexManager {
         Reservation reservation = new Reservation(name, surname, screening, seats, expirationTime, totalAmount);
         reservations.add(reservation);
         return reservation;
+    }
+
+    protected static void printReservationError(String msg){
+        System.out.println("[RESERVATION ERROR]: "+msg);
     }
 }
 
