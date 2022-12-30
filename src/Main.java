@@ -12,7 +12,7 @@ public class Main {
         System.out.println(testTime1_2);
         LocalTime testTime2_1 = LocalTime.of(11,30);
         System.out.println(testTime2_1);
-        LocalTime testTime2_2 = LocalTime.of(18,25);
+        LocalTime testTime2_2 = LocalTime.of(23,30);
         System.out.println(testTime2_2);
 
         LocalDate testDate1 = LocalDate.of(2001,2,22);
