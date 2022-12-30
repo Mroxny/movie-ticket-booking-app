@@ -56,7 +56,7 @@ public class Room {
     public void bookSeat(Seat seat){
         bookSeat(seat.getRow(),seat.getColumn(), seat.getSeatType());
     }
-    
+
     public void bookSeats(Collection<Seat> seats){
         for(Seat s: seats){
             bookSeat(s.getRow(), s.getColumn(), s.getSeatType());
