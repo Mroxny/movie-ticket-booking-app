@@ -49,8 +49,9 @@ public class MultiplexManager {
             return null;
         }
 
+        List<Seat> screeningSeats = screening.getSeats();
         for (Seat seat : seats) {
-            if (!screening.getSeats().contains(seat)) {
+            if (!screeningSeats.contains(seat)) {
                 return null;
             }
         }
