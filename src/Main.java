@@ -32,6 +32,11 @@ public class Main {
                 new Seat(2, 5)
         );
 
+        List<Seat> seats2 = Arrays.asList(
+                new Seat(1, 1),
+                new Seat(1, 2)
+        );
+
         Movie movie1 = new Movie("Test1", 120);
         Movie movie2 = new Movie("Test2", 90);
 
@@ -43,6 +48,6 @@ public class Main {
         MultiplexManager mm = new MultiplexManager(Arrays.asList(s1,s2,s3,s4));
 
         System.out.println(mm.listScreenings(testDate2, LocalTime.of(12,0), LocalTime.of(23,59)));
-
+        System.out.println(mm.makeReservation("Test", "SurTest", 3, seats2));
     }
 }
