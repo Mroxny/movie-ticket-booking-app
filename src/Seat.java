@@ -4,11 +4,15 @@ public class Seat {
     private boolean isBooked;
     private TicketType seatType;
 
-    public Seat(int row, int column, boolean isBooked) {
+    public Seat(int row, int column, boolean isBooked, TicketType seatType) {
         this.row = row;
         this.column = column;
         this.isBooked = isBooked;
-        seatType = TicketType.ADULT;
+        this.seatType = seatType;
+    }
+
+    public Seat(int row, int column, boolean isBooked){
+        this(row,column, isBooked, TicketType.ADULT);
     }
 
     public Seat(int row, int column){
