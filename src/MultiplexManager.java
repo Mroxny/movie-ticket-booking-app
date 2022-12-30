@@ -9,10 +9,12 @@ import java.util.stream.Collectors;
 
 public class MultiplexManager {
     private List<Screening> screenings;
+    private List<Room> rooms;
     private List<Reservation> reservations;
 
-    public MultiplexManager(List<Screening> screenings) {
+    public MultiplexManager(List<Screening> screenings, List<Room> rooms) {
         this.screenings = screenings;
+        this.rooms = rooms;
         reservations = new ArrayList<>();
     }
 
@@ -33,15 +35,28 @@ public class MultiplexManager {
         return null;
     }
 
+    public Room getRoom(int roomNumber){
+        for (Room r : rooms) {
+            if (r.getRoomNumber() == roomNumber) return r;
+        }
+        return null;
+    }
+
     public Reservation makeReservation(String name, String surname, int screeningId, List<Seat> seats) {
         Screening screening = getScreening(screeningId);
-
         if (screening == null) {
-            System.out.println("[RESERVATION ERROR]: Can't find screening with that Id");
+            printReservationError("Can't find screening with that Id");
             return null;
         }
 
-        LocalDateTime now = LocalDateTime.now();
+        Room room = getRoom(screening.getScreeningRoom());
+
+        if(room == null){
+            printReservationError("That screening has invalid room number");
+            return null;
+        }
+
+                LocalDateTime now = LocalDateTime.now();
         LocalDateTime startDateTime = LocalDateTime.of(screening.getDay(), screening.getStartTime());
         if (now.isAfter(startDateTime) || now.plusMinutes(15).isAfter(startDateTime)) {
             printReservationError("Can't make reservation at that time");
@@ -53,13 +68,13 @@ public class MultiplexManager {
             return null;
         }
 
-        /*List<Seat> screeningSeats = screening.getSeats();
+        List<Seat> screeningSeats = room.getSeats();
         for (Seat seat : seats) {
             if (!screeningSeats.contains(seat)) {
                 printReservationError("Can't find seats like that");
                 return null;
             }
-        }*/
+        }
 
         LocalDateTime expirationTime = now.plusMinutes(15);
         double totalAmount = seats.stream().mapToDouble(seat -> seat.getSeatType().getPrice()).sum();
