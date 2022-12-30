@@ -37,22 +37,26 @@ public class MultiplexManager {
         Screening screening = getScreening(screeningId);
 
         if (screening == null) {
+            System.out.println("[RESERVATION ERROR]: Can't find screening with that Id");
             return null;
         }
 
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime startDateTime = LocalDateTime.of(screening.getDay(), screening.getStartTime());
         if (now.isAfter(startDateTime) || now.plusMinutes(15).isAfter(startDateTime)) {
+            System.out.println("[RESERVATION ERROR]: Can't make reservation at that time");
             return null;
         }
 
         if (seats.size() < 1 || seats.size() > 10) {
+            System.out.println("[RESERVATION ERROR]: Wrong number of seats");
             return null;
         }
 
         List<Seat> screeningSeats = screening.getSeats();
         for (Seat seat : seats) {
             if (!screeningSeats.contains(seat)) {
+                System.out.println("[RESERVATION ERROR]: Can't find seats like that");
                 return null;
             }
         }
