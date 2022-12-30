@@ -44,7 +44,7 @@ public class MultiplexManager {
         return null;
     }
 
-    public boolean canBookSeats(List<Seat> reservedSeats, List<Seat> row){
+    public boolean canBookSeats(List<Seat> reservedSeats, int roomNumber){
         reservedSeats.sort(new Comparator<Seat>() {
             @Override
             public int compare(Seat o1, Seat o2) {
@@ -52,11 +52,13 @@ public class MultiplexManager {
             }
         });
 
+        List<Seat> row = getRoom(roomNumber).getRow(reservedSeats.get(0).getRow());
+        
         System.out.println(reservedSeats);
-        for(int i = 0; i < reservedSeats.size(); i++){
+        for(int i = 1; i < reservedSeats.size(); i++){
             if(reservedSeats.get(i).getRow() != row.get(0).getRow())
                 return false;
-            if(i-1 >= 0 && reservedSeats.get(i).getColumn() != reservedSeats.get(i-1).getColumn())
+            if(reservedSeats.get(i).getColumn() != reservedSeats.get(i-1).getColumn())
                 return false;
         }
 
