@@ -1,5 +1,6 @@
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Room {
     private int roomNumber;
@@ -61,6 +62,10 @@ public class Room {
         for(Seat s: seats){
             bookSeat(s.getRow(), s.getColumn(), s.getSeatType());
         }
+    }
+
+    public List<Seat> getRow(int row){
+        return seats.stream().filter(s -> s.getRow() == row).collect(Collectors.toList());
     }
 
 }
