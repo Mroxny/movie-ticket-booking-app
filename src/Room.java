@@ -25,7 +25,7 @@ public class Room {
         this.seats = seats;
     }
 
-    private int findSeat(int row, int col){
+    public int findSeat(int row, int col){
         for(int i = 0; i<seats.size(); i++){
             if(seats.get(i).getRow() == row && seats.get(i).getColumn() == col) return i;
         }
