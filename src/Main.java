@@ -12,7 +12,7 @@ public class Main {
         System.out.println(testTime1_2);
         LocalTime testTime2_1 = LocalTime.of(11,30);
         System.out.println(testTime2_1);
-        LocalTime testTime2_2 = LocalTime.of(17,25);
+        LocalTime testTime2_2 = LocalTime.of(18,25);
         System.out.println(testTime2_2);
 
         LocalDate testDate1 = LocalDate.of(2001,2,22);
@@ -70,7 +70,7 @@ public class Main {
 
         MultiplexManager mm = new MultiplexManager(screenings, rooms);
 
-        System.out.println(mm.listScreenings(testDate2, LocalTime.of(12,0), LocalTime.of(23,59)));
-        System.out.println(mm.makeReservation("Test", "SurTest", 3, seats2));
+        System.out.println(mm.listScreenings(testDate2, LocalTime.now(), LocalTime.of(23,59)));
+        System.out.println(mm.makeReservation("Test", "SurTest", 3, seats3));
     }
 }
