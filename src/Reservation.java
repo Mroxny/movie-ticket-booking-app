@@ -65,4 +65,16 @@ public class Reservation {
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", screeningId=" + screening.getScreeningId() +
+                ", seats=" + seats +
+                ", expirationTime=" + expirationTime +
+                ", totalAmount=" + totalAmount +
+                '}';
+    }
 }
