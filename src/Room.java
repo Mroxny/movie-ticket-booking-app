@@ -36,7 +36,7 @@ public class Room {
         int seatIndex = findSeat(row,col);
 
         if(seatIndex < 0){
-            System.out.println("Cannot find seat like this");
+            System.out.println("Cannot find seat like this: row = "+ row +", col = "+ col);
             return;
         }
 
