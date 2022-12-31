@@ -1,5 +1,8 @@
 package app;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -10,6 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+@RestController
 public class MultiplexManager {
     private List<Screening> screenings;
     private List<Room> rooms;
@@ -21,6 +25,7 @@ public class MultiplexManager {
         reservations = new ArrayList<>();
     }
 
+    @GetMapping("/listScreenings")
     public List<Screening> listScreenings(LocalDate day, LocalTime startTime, LocalTime endTime) {
         return screenings.stream()
                 .filter(screening -> screening.getDay().isEqual(day) &&
