@@ -1,3 +1,5 @@
+package app;
+
 public enum TicketType {
     ADULT(25),
     STUDENT(18),

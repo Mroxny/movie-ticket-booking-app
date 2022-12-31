@@ -1,3 +1,5 @@
+package app;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -68,7 +70,7 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Reservation{" +
+        return "app.Reservation{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", screeningId=" + screening.getScreeningId() +

@@ -1,3 +1,5 @@
+package app;
+
 public class Movie {
     private String title;
 

@@ -47,7 +47,7 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="movie-ticket-booking-app" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -70,7 +70,7 @@
       <workItem from="1672251360683" duration="691000" />
       <workItem from="1672252274721" duration="643000" />
       <workItem from="1672390550896" duration="3548000" />
-      <workItem from="1672498180659" duration="865000" />
+      <workItem from="1672498180659" duration="1652000" />
     </task>
     <servers />
   </component>

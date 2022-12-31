@@ -1,3 +1,5 @@
+package app;
+
 public class Seat {
     private int row;
     private int column;
@@ -57,7 +59,7 @@ public class Seat {
 
     @Override
     public String toString() {
-        return "Seat{" +
+        return "app.Seat{" +
                 "row=" + row +
                 ", column=" + column +
                 ", seatType=" + seatType +

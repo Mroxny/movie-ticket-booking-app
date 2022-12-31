@@ -1,6 +1,7 @@
+package app;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 
 public class Screening {
     private static int sCount = 0;
@@ -74,7 +75,7 @@ public class Screening {
 
     @Override
     public String toString() {
-        return "Screening{" +
+        return "app.Screening{" +
                 "screeningId=" + screeningId +
                 ", screeningRoom=" + screeningRoom +
                 ", day=" + day +
