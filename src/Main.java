@@ -49,7 +49,7 @@ public class Main {
 
         List<Seat> seats3 = Arrays.asList(
                 new Seat(1, 1, TicketType.ADULT),
-                new Seat(1, 2, TicketType.CHILD),
+                new Seat(1, 3, TicketType.CHILD),
                 new Seat(1, 2, TicketType.STUDENT)
         );
 
@@ -69,15 +69,14 @@ public class Main {
         screenings.add(new Screening(1,testDate1.plusDays(1),testTime1_1.plusHours(2), movie1));
         screenings.add(new Screening(2,testDate2.plusDays(1),testTime1_2.plusHours(2), movie2));
         screenings.add(new Screening(3,testDate1.plusDays(1),testTime2_1.plusHours(2), movie1));
-        screenings.add(new Screening(1,testDate1.plusDays(2),testTime1_1.plusHours(2), movie1));
-        screenings.add(new Screening(2,testDate2.plusDays(2),testTime1_2.plusHours(2), movie2));
-        screenings.add(new Screening(3,testDate1.plusDays(2),testTime2_1.plusHours(2), movie1));
+
 
 
         MultiplexManager mm = new MultiplexManager(screenings, rooms);
 
 //        screenings.forEach(s -> System.out.println(s+"\n"));
         System.out.println(mm.listScreenings(testDate2.plusDays(2), LocalTime.of(0,0), LocalTime.of(23,59)));
-        System.out.println(mm.makeReservation("Test", "żółć", 7, seats3));
+        System.out.println(mm.makeReservation("Jan", "Zolc", 7, seats3));
+
     }
 }
