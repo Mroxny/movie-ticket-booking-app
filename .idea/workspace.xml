@@ -4,27 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a740b0fa-14e7-4f39-96bf-ce5122fa8913" name="Changes" comment="" />
+    <list default="true" id="8977ef95-3239-4725-a6c3-21846c3bf169" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2JYO3HgC4Hq10q7F17nmweTNmlK" />
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2JoutQuxDkmCHHgPEPtqytlFrZZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,43 +30,29 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Projects/Custom Projects/movie-ticket-booking-app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "da71910d66b8ad567784d45b46dbb819",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
+    <configuration name="MovieTicketBookingAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="movie-ticket-booking-app" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mroxny.mtba.MovieTicketBookingAppApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a740b0fa-14e7-4f39-96bf-ce5122fa8913" name="Changes" comment="" />
-      <created>1672251356228</created>
+      <changelist id="8977ef95-3239-4725-a6c3-21846c3bf169" name="Changes" comment="" />
+      <created>1672756972182</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1672251356228</updated>
-      <workItem from="1672251360683" duration="691000" />
-      <workItem from="1672252274721" duration="643000" />
-      <workItem from="1672390550896" duration="3548000" />
-      <workItem from="1672498180659" duration="1652000" />
+      <updated>1672756972182</updated>
+      <workItem from="1672756973321" duration="68000" />
+      <workItem from="1672757094290" duration="2359000" />
     </task>
     <servers />
   </component>
