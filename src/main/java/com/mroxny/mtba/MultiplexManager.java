@@ -2,7 +2,6 @@ package com.mroxny.mtba;
 
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -22,11 +21,18 @@ public class MultiplexManager {
     private static List<Reservation> reservations;
 
     public MultiplexManager() {
-        screenings = Main.getScreenings();
-        rooms = Main.getRooms();
+        screenings = TestData.getScreenings();
+        rooms = TestData.getRooms();
         reservations = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param day the day the movie is shown
+     * @param startTime minimum movie start time
+     * @param endTime maximum movie start time
+     * @return a list of screenings in a given time period
+     */
     public List<Screening> listScreenings( LocalDate day,  LocalTime startTime, LocalTime endTime) {
         return screenings.stream()
                 .filter(screening -> screening.getDay().isEqual(day) &&
@@ -65,6 +71,12 @@ public class MultiplexManager {
         return reservations;
     }
 
+    /**
+     *
+     * @param room the room where the seats to be checked are placed
+     * @param reservedSeats seats to be checked
+     * @return true if all reserved seats are in one row and there is no gap between them
+     */
     public boolean canBookSeats(Room room, List<Seat> reservedSeats){
         reservedSeats.sort(new Comparator<Seat>() {
             @Override
@@ -96,6 +108,15 @@ public class MultiplexManager {
         return !room.isSeatBooked(seat);
     }
 
+    /**
+     *
+     * @param request object consisting of:
+     * - name
+     * - name
+     * - screening id
+     * - list of reserved seats
+     * @return reservation object and adds it to the list if the entered data is correct. Otherwise, returns null
+     */
     public Reservation makeReservation( ReservationRequest request) {
         String name = request.getName();
         String surname = request.getSurname();
@@ -137,7 +158,8 @@ public class MultiplexManager {
         }
 
         String nameRegex = "^[A-Ż][a-żA-ż]{2,}$";
-        String surnameRegex = "^[A-Ż][a-żA-Ż]*-[A-Ż][a-żA-Ż]*$";
+        String surnameRegex = "^[A-Ż][a-żA-Ż]*-[A-Ż][a-żA-Żcd target" +
+                "]*$";
         Pattern surnamePattern = Pattern.compile(surnameRegex);
         Pattern namePattern = Pattern.compile(nameRegex);
 
