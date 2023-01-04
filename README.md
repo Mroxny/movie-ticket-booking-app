@@ -9,7 +9,7 @@ The application is a seat reservation system for a multiplex cinema, written in 
 Installation
 ----
 
-You can install the project by downloading the [.zip]() file and typing `java -jar movie-ticket-booking-app-0.0.1-SNAPSHOT.jar` or clone the project and typing `mvn package`
+You can install the project by downloading the [.zip](https://github.com/Mroxny/movie-ticket-booking-app/releases/) file and typing `java -jar movie-ticket-booking-app-0.0.1-SNAPSHOT.jar` or clone the project and typing `mvn package`
 
 
 How to use
