@@ -27,7 +27,7 @@ The whole thing can also be done in *Postman*. To make a reservation in this pro
 1. In the "Create a new request" dialog, select "POST" as the HTTP method and enter the URL for the 'localhost:8080/reservations' endpoint in the "Enter request URL" field.
 2. In the "Body" tab, select the "raw" radio button and select "JSON (application/json)" from the dropdown list.
 3. In the request body, enter the reservation data as a JSON object. The JSON object should include the name and surname of the person making the reservation, the id of the screening, and a list of seats.
-```
+```JSON
 {
     "name": "Jan",
     "surname": "Kowalski",
