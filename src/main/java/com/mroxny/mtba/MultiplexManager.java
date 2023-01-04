@@ -1,8 +1,8 @@
 package com.mroxny.mtba;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,25 +14,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-@RestController
+@Service
 public class MultiplexManager {
-    private List<Screening> screenings;
-    private List<Room> rooms;
-    private List<Reservation> reservations;
+    private static List<Screening> screenings;
 
-    public MultiplexManager(List<Screening> screenings, List<Room> rooms) {
-        this.screenings = screenings;
-        this.rooms = rooms;
+    private static List<Room> rooms;
+    private static List<Reservation> reservations;
+
+    public MultiplexManager() {
+        screenings = Main.getScreenings();
+        rooms = Main.getRooms();
         reservations = new ArrayList<>();
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "Test 123";
-    }
-
-    @GetMapping("/listScreenings")
-    public List<Screening> listScreenings(LocalDate day, LocalTime startTime, LocalTime endTime) {
+    public List<Screening> listScreenings( LocalDate day,  LocalTime startTime, LocalTime endTime) {
         return screenings.stream()
                 .filter(screening -> screening.getDay().isEqual(day) &&
                         screening.getStartTime().isAfter(startTime) &&
@@ -43,6 +38,7 @@ public class MultiplexManager {
     }
 
     public Screening getScreening(int screeningId) {
+
         for (Screening s : screenings) {
             if (s.getScreeningId() == screeningId) return s;
         }
@@ -56,7 +52,20 @@ public class MultiplexManager {
         return null;
     }
 
-    public boolean canBookSeats(List<Seat> reservedSeats){
+    public List<Screening> listAllScreenings(){
+        return screenings;
+    }
+    public Reservation getReservation(int id){
+        for(Reservation r : reservations)
+            if(r.getReservationId() == id) return r;
+        return null;
+    }
+
+    public List<Reservation> getReservations(){
+        return reservations;
+    }
+
+    public boolean canBookSeats(Room room, List<Seat> reservedSeats){
         reservedSeats.sort(new Comparator<Seat>() {
             @Override
             public int compare(Seat o1, Seat o2) {
@@ -65,6 +74,7 @@ public class MultiplexManager {
         });
 
         int rowNum = reservedSeats.get(0).getRow();
+        if(!isSeatValid(room,reservedSeats.get(0))) return false;
 
         for(int i = 1; i < reservedSeats.size(); i++){
             if(reservedSeats.get(i).getRow() != rowNum){
@@ -74,23 +84,36 @@ public class MultiplexManager {
             if(reservedSeats.get(i).getColumn()-1 != reservedSeats.get(i-1).getColumn()){
                 return false;
             }
+
+            if(!isSeatValid(room,reservedSeats.get(0))) return false;
+
         }
-
-
         return true;
     }
 
-    public Reservation makeReservation(String name, String surname, int screeningId, List<Seat> seats) {
+    private boolean isSeatValid(Room room, Seat seat){
+        if(room.findSeat(seat) < 0) return false;
+        return !room.isSeatBooked(seat);
+    }
+
+    public Reservation makeReservation( ReservationRequest request) {
+        String name = request.getName();
+        String surname = request.getSurname();
+        int screeningId = request.getScreeningId();
+        List<Seat> seats = request.getSeats();
+
+
+
         Screening screening = getScreening(screeningId);
         if (screening == null) {
-            printReservationError("Can't find screening with that Id");
+            printReservationError("Can't find screening with id "+screeningId);
             return null;
         }
 
         Room room = getRoom(screening.getScreeningRoom());
 
         if(room == null){
-            printReservationError("That screening has invalid room number");
+            printReservationError("That screening has invalid room number: "+ screening.getScreeningRoom());
             return null;
         }
 
@@ -113,8 +136,8 @@ public class MultiplexManager {
             }
         }
 
-        String nameRegex = "^[A-Z][a-zA-Z]{2,}$";
-        String surnameRegex = "^[A-Z][a-zA-Z]*-[A-Z][a-zA-Z]*$";
+        String nameRegex = "^[A-Ż][a-żA-ż]{2,}$";
+        String surnameRegex = "^[A-Ż][a-żA-Ż]*-[A-Ż][a-żA-Ż]*$";
         Pattern surnamePattern = Pattern.compile(surnameRegex);
         Pattern namePattern = Pattern.compile(nameRegex);
 
@@ -130,7 +153,7 @@ public class MultiplexManager {
             return null;
         }
 
-        if(!canBookSeats(seats)){
+        if(!canBookSeats(room, seats)){
             printReservationError("Invalid seats placement");
             return null;
         }

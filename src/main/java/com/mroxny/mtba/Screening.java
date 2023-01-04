@@ -73,15 +73,5 @@ public class Screening {
         this.day = day;
     }
 
-    @Override
-    public String toString() {
-        return "app.Screening{" +
-                "screeningId=" + screeningId +
-                ", screeningRoom=" + screeningRoom +
-                ", day=" + day +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", movie=" + movie.getTitle() +
-                '}';
-    }
+
 }

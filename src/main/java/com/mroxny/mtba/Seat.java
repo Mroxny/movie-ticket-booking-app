@@ -1,34 +1,25 @@
 package com.mroxny.mtba;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.JsonNode;
+
 public class Seat {
     private int row;
     private int column;
-    private boolean isBooked;
+    private boolean isBooked = false;
     private TicketType seatType;
 
-    public Seat(int row, int column, boolean isBooked, TicketType seatType) {
+    public Seat(int row, int column, TicketType seatType) {
         this.row = row;
         this.column = column;
-        this.isBooked = isBooked;
         this.seatType = seatType;
-    }
-
-    public Seat(int row, int column, TicketType seatType){
-        this(row,column, false, seatType);
-    }
-
-    public Seat(int row, int column, boolean isBooked){
-        this(row,column, isBooked, TicketType.ADULT);
-    }
-
-    public Seat(int row, int column){
-        this(row,column, false);
     }
 
     public int getRow() {
         return row;
     }
 
+    @JsonProperty("row")
     public void setRow(int row) {
         this.row = row;
     }
@@ -37,6 +28,7 @@ public class Seat {
         return column;
     }
 
+    @JsonProperty("column")
     public void setColumn(int column) {
         this.column = column;
     }
@@ -45,6 +37,7 @@ public class Seat {
         return isBooked;
     }
 
+    @JsonProperty("isBooked")
     public void setBooked(boolean booked) {
         isBooked = booked;
     }
@@ -53,17 +46,11 @@ public class Seat {
         return seatType;
     }
 
+    @JsonProperty("seatType")
     public void setSeatType(TicketType seatType) {
         this.seatType = seatType;
     }
 
-    @Override
-    public String toString() {
-        return "app.Seat{" +
-                "row=" + row +
-                ", column=" + column +
-                ", seatType=" + seatType +
-                '}';
-    }
+
 }
 

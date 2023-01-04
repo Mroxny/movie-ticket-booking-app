@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Reservation {
+    private static int sCount = 0;
+    private int reservationId;
     private String name;
     private String surname;
     private Screening screening;
@@ -12,6 +14,7 @@ public class Reservation {
     private double totalAmount;
 
     public Reservation(String name, String surname, Screening screening, List<Seat> seats, LocalDateTime expirationTime, double totalAmount) {
+        reservationId = sCount++;
         this.name = name;
         this.surname = surname;
         this.screening = screening;
@@ -68,15 +71,12 @@ public class Reservation {
         this.totalAmount = totalAmount;
     }
 
-    @Override
-    public String toString() {
-        return "app.Reservation{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", screeningId=" + screening.getScreeningId() +
-                ", seats=" + seats +
-                ", expirationTime=" + expirationTime +
-                ", totalAmount=" + totalAmount +
-                '}';
+    public int getReservationId() {
+        return reservationId;
     }
+
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
+    }
+
 }

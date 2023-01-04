@@ -70,4 +70,20 @@ public class Room {
         return seats.stream().filter(s -> s.getRow() == row).collect(Collectors.toList());
     }
 
+    public List<Seat> getAvailableSeats(){
+        return seats.stream().filter(s -> !s.isBooked()).collect(Collectors.toList());
+    }
+
+    public boolean isSeatBooked(Seat seat){
+        int i = findSeat(seat);
+
+        try {
+            return seats.get(i).isBooked();
+        }
+        catch (Exception e){
+            return false;
+        }
+
+    }
+
 }
