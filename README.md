@@ -9,15 +9,8 @@ The application is a seat reservation system for a multiplex cinema, written in 
 Installation
 ----
 
-* Install [Java JDK](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html) and add it to PATH in environmental variables
-* Download *movie-ticket-booking-app.zip* file from [here](https://github.com/Mroxny/forecast/releases)
-* Open CMD and type `java -jar movie-ticket-booking-app-0.0.1-SNAPSHOT.jar`
-* Enjoy!
+You can install the project by downloading the [.zip](https://github.com/Mroxny/movie-ticket-booking-app/releases/) file and typing `java -jar movie-ticket-booking-app-0.0.1-SNAPSHOT.jar` or clone the project and typing `mvn package`
 
-Build
-----
-
-Clone project and `mvn package`
 
 How to use
 ----
@@ -53,4 +46,11 @@ The whole thing can also be done in *Postman*. To make a reservation in this pro
     ]
 }
 ```
+
+Assumptions
+----
+Some basic assumptions:
+* A maximum of 10 seats can be booked
+* All seats must be booked in one row in one reservation
+* All seats are *ADULT* by default
 
